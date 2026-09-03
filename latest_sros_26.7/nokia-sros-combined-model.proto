@@ -7659,6 +7659,7 @@ message root {
                             imm12_sfp28plus2_qsfp28        = 144 [(yang_enum_value_name)="imm12-sfp28+2-qsfp28"];
                             dms24_800g_qsfpdd_1            = 146 [(yang_enum_value_name)="dms24-800g-qsfpdd-1"];
                             imm16_sfp112plus15_sfp56plus6_qsfpdd = 149 [(yang_enum_value_name)="imm16-sfp112+15-sfp56+6-qsfpdd"];
+                            imm8_sfp112plus18_sfp28plus2_qsfpdd = 151 [(yang_enum_value_name)="imm8-sfp112+18-sfp28+2-qsfpdd"];
                             iom_sar                        = 153 [(yang_enum_value_name)="iom-sar"];
                             imm4_qsfp28plus16_sfp28plus8_sfp56 = 155 [(yang_enum_value_name)="imm4-qsfp28+16-sfp28+8-sfp56"];
                             iom_sar_1x                     = 157 [(yang_enum_value_name)="iom-sar-1x"];
@@ -8052,6 +8053,7 @@ message root {
                                 m16_sfpplusplus4_sfp28         = 278 [(yang_enum_value_name)="m16-sfp++4-sfp28"];
                                 m5e10_100g_qsfp28              = 279 [(yang_enum_value_name)="m5e10-100g-qsfp28"];
                                 m5e16_100g_sfp112              = 282 [(yang_enum_value_name)="m5e16-100g-sfp112"];
+                                m8_sfp112plus18_sfp28plus2_qsfpdd = 284 [(yang_enum_value_name)="m8-sfp112+18-sfp28+2-qsfpdd"];
                             }
                             enum_value value = 1;
                         }
@@ -105491,7 +105493,6 @@ message root {
                                         yang_type_admin_state admin_state = 1 [(yang_leaf_name)="admin-state"];
                                         yang_type_bool bfd_leaf = 2 [(yang_leaf_name)="bfd-leaf"];
                                         yang_type_string static_policy_mpls = 4 [(yang_leaf_name)="static-policy-mpls"];
-                                        yang_type_bool p2mp_policy_mpls = 6 [(yang_leaf_name)="p2mp-policy-mpls"];
                                         yang_type_string static_policy_srv6 = 7 [(yang_leaf_name)="static-policy-srv6"];
                                         msg_bfd_root bfd_root = 8 [(yang_leaf_name)="bfd-root"];
 
@@ -105597,7 +105598,6 @@ message root {
 
                                             // keys, fields, sub-containers
                                             yang_type_string static_policy_mpls = 2 [(yang_leaf_name)="static-policy-mpls"];
-                                            yang_type_bool p2mp_policy_mpls = 4 [(yang_leaf_name)="p2mp-policy-mpls"];
                                             yang_type_string static_policy_srv6 = 5 [(yang_leaf_name)="static-policy-srv6"];
                                         } // message msg_p2mp_sr
 
@@ -105675,7 +105675,6 @@ message root {
                                         // keys, fields, sub-containers
                                         yang_type_admin_state admin_state = 1 [(yang_leaf_name)="admin-state"];
                                         yang_type_string static_policy_mpls = 4 [(yang_leaf_name)="static-policy-mpls"];
-                                        yang_type_bool p2mp_policy_mpls = 5 [(yang_leaf_name)="p2mp-policy-mpls"];
                                         yang_type_string static_policy_srv6 = 6 [(yang_leaf_name)="static-policy-srv6"];
                                         yang_type_uint32 maximum_p2mp_spmsi = 7 [(yang_leaf_name)="maximum-p2mp-spmsi"];
                                     } // message msg_p2mp_sr
@@ -134353,10 +134352,10 @@ message root {
 
                                 // keys, fields, sub-containers
                                 yang_type_admin_state admin_state = 1 [(yang_leaf_name)="admin-state"];
-                                yang_type_uint32 port = 2 [(yang_leaf_name)="port"];
-                                yang_type_uint32 delay_on_boot = 3 [(yang_leaf_name)="delay-on-boot"];
-                                yang_type_uint32 idle_timeout = 4 [(yang_leaf_name)="idle-timeout"];
-                                yang_type_enum_transport transport = 5 [(yang_leaf_name)="transport"];
+                                yang_type_enum_transport transport = 2 [(yang_leaf_name)="transport"];
+                                yang_type_uint32 port = 3 [(yang_leaf_name)="port"];
+                                yang_type_uint32 delay_on_boot = 4 [(yang_leaf_name)="delay-on-boot"];
+                                yang_type_uint32 idle_timeout = 5 [(yang_leaf_name)="idle-timeout"];
                                 yang_type_string tls_server_profile = 6 [(yang_leaf_name)="tls-server-profile"];
 
                                 message yang_type_enum_transport {
@@ -134383,9 +134382,9 @@ message root {
                                     yang_type_admin_state admin_state = 2 [(yang_leaf_name)="admin-state"];
                                     yang_type_string description = 3 [(yang_leaf_name)="description"];
                                     yang_type_string remote_address = 4 [(yang_leaf_name)="remote-address"];
-                                    yang_type_int32 remote_port = 5 [(yang_leaf_name)="remote-port"];
-                                    yang_type_string router_instance = 6 [(yang_leaf_name)="router-instance"];
-                                    yang_type_enum_transport transport = 7 [(yang_leaf_name)="transport"];
+                                    yang_type_enum_transport transport = 5 [(yang_leaf_name)="transport"];
+                                    yang_type_int32 remote_port = 6 [(yang_leaf_name)="remote-port"];
+                                    yang_type_string router_instance = 7 [(yang_leaf_name)="router-instance"];
                                     yang_type_enum_connection_type connection_type = 8 [(yang_leaf_name)="connection-type"];
                                     yang_type_uint32 delay_on_boot = 9 [(yang_leaf_name)="delay-on-boot"];
                                     yang_type_uint32 idle_timeout = 10 [(yang_leaf_name)="idle-timeout"];
@@ -162476,6 +162475,7 @@ message root {
                     imm12_sfp28plus2_qsfp28        = 144 [(yang_enum_value_name)="imm12-sfp28+2-qsfp28"];
                     dms24_800g_qsfpdd_1            = 146 [(yang_enum_value_name)="dms24-800g-qsfpdd-1"];
                     imm16_sfp112plus15_sfp56plus6_qsfpdd = 149 [(yang_enum_value_name)="imm16-sfp112+15-sfp56+6-qsfpdd"];
+                    imm8_sfp112plus18_sfp28plus2_qsfpdd = 151 [(yang_enum_value_name)="imm8-sfp112+18-sfp28+2-qsfpdd"];
                     iom_sar                        = 153 [(yang_enum_value_name)="iom-sar"];
                     imm4_qsfp28plus16_sfp28plus8_sfp56 = 155 [(yang_enum_value_name)="imm4-qsfp28+16-sfp28+8-sfp56"];
                     iom_sar_1x                     = 157 [(yang_enum_value_name)="iom-sar-1x"];
@@ -162852,6 +162852,7 @@ message root {
                         m16_sfpplusplus4_sfp28         = 278 [(yang_enum_value_name)="m16-sfp++4-sfp28"];
                         m5e10_100g_qsfp28              = 279 [(yang_enum_value_name)="m5e10-100g-qsfp28"];
                         m5e16_100g_sfp112              = 282 [(yang_enum_value_name)="m5e16-100g-sfp112"];
+                        m8_sfp112plus18_sfp28plus2_qsfpdd = 284 [(yang_enum_value_name)="m8-sfp112+18-sfp28+2-qsfpdd"];
                     }
                     enum_value value = 1;
                 }
@@ -252229,7 +252230,6 @@ message root {
                                 yang_type_admin_state admin_state = 1 [(yang_leaf_name)="admin-state"];
                                 yang_type_bool bfd_leaf = 2 [(yang_leaf_name)="bfd-leaf"];
                                 yang_type_string static_policy_mpls = 4 [(yang_leaf_name)="static-policy-mpls"];
-                                yang_type_bool p2mp_policy_mpls = 6 [(yang_leaf_name)="p2mp-policy-mpls"];
                                 yang_type_string static_policy_srv6 = 7 [(yang_leaf_name)="static-policy-srv6"];
                                 msg_bfd_root bfd_root = 8 [(yang_leaf_name)="bfd-root"];
 
@@ -252323,7 +252323,6 @@ message root {
 
                                     // keys, fields, sub-containers
                                     yang_type_string static_policy_mpls = 2 [(yang_leaf_name)="static-policy-mpls"];
-                                    yang_type_bool p2mp_policy_mpls = 4 [(yang_leaf_name)="p2mp-policy-mpls"];
                                     yang_type_string static_policy_srv6 = 5 [(yang_leaf_name)="static-policy-srv6"];
                                 } // message msg_p2mp_sr
 
@@ -252385,7 +252384,6 @@ message root {
                                 // keys, fields, sub-containers
                                 yang_type_admin_state admin_state = 1 [(yang_leaf_name)="admin-state"];
                                 yang_type_string static_policy_mpls = 4 [(yang_leaf_name)="static-policy-mpls"];
-                                yang_type_bool p2mp_policy_mpls = 5 [(yang_leaf_name)="p2mp-policy-mpls"];
                                 yang_type_string static_policy_srv6 = 6 [(yang_leaf_name)="static-policy-srv6"];
                                 yang_type_uint32 maximum_p2mp_spmsi = 7 [(yang_leaf_name)="maximum-p2mp-spmsi"];
                             } // message msg_p2mp_sr
@@ -279441,10 +279439,10 @@ message root {
 
                         // keys, fields, sub-containers
                         yang_type_admin_state admin_state = 1 [(yang_leaf_name)="admin-state"];
-                        yang_type_uint32 port = 2 [(yang_leaf_name)="port"];
-                        yang_type_uint32 delay_on_boot = 3 [(yang_leaf_name)="delay-on-boot"];
-                        yang_type_uint32 idle_timeout = 4 [(yang_leaf_name)="idle-timeout"];
-                        yang_type_enum_transport transport = 5 [(yang_leaf_name)="transport"];
+                        yang_type_enum_transport transport = 2 [(yang_leaf_name)="transport"];
+                        yang_type_uint32 port = 3 [(yang_leaf_name)="port"];
+                        yang_type_uint32 delay_on_boot = 4 [(yang_leaf_name)="delay-on-boot"];
+                        yang_type_uint32 idle_timeout = 5 [(yang_leaf_name)="idle-timeout"];
                         yang_type_string tls_server_profile = 6 [(yang_leaf_name)="tls-server-profile"];
 
                         message yang_type_enum_transport {
@@ -279473,9 +279471,9 @@ message root {
                                      yang_type_admin_state admin_state = 4 [(yang_leaf_name)="admin-state"];
                                      yang_type_string description = 5 [(yang_leaf_name)="description"];
                                      yang_type_string remote_address = 6 [(yang_leaf_name)="remote-address"];
-                                     yang_type_int32 remote_port = 7 [(yang_leaf_name)="remote-port"];
-                                     yang_type_string router_instance = 8 [(yang_leaf_name)="router-instance"];
-                                     yang_type_enum_transport transport = 9 [(yang_leaf_name)="transport"];
+                                     yang_type_enum_transport transport = 7 [(yang_leaf_name)="transport"];
+                                     yang_type_int32 remote_port = 8 [(yang_leaf_name)="remote-port"];
+                                     yang_type_string router_instance = 9 [(yang_leaf_name)="router-instance"];
                                      yang_type_enum_connection_type connection_type = 10 [(yang_leaf_name)="connection-type"];
                                      yang_type_uint32 delay_on_boot = 11 [(yang_leaf_name)="delay-on-boot"];
                                      yang_type_uint32 idle_timeout = 12 [(yang_leaf_name)="idle-timeout"];
@@ -314355,6 +314353,7 @@ message root {
                     imm12_sfp28plus2_qsfp28        = 144 [(yang_enum_value_name)="imm12-sfp28+2-qsfp28"];
                     dms24_800g_qsfpdd_1            = 146 [(yang_enum_value_name)="dms24-800g-qsfpdd-1"];
                     imm16_sfp112plus15_sfp56plus6_qsfpdd = 149 [(yang_enum_value_name)="imm16-sfp112+15-sfp56+6-qsfpdd"];
+                    imm8_sfp112plus18_sfp28plus2_qsfpdd = 151 [(yang_enum_value_name)="imm8-sfp112+18-sfp28+2-qsfpdd"];
                     iom_sar                        = 153 [(yang_enum_value_name)="iom-sar"];
                     imm4_qsfp28plus16_sfp28plus8_sfp56 = 155 [(yang_enum_value_name)="imm4-qsfp28+16-sfp28+8-sfp56"];
                     iom_sar_1x                     = 157 [(yang_enum_value_name)="iom-sar-1x"];
@@ -315168,6 +315167,7 @@ message root {
                         m16_sfpplusplus4_sfp28         = 278 [(yang_enum_value_name)="m16-sfp++4-sfp28"];
                         m5e10_100g_qsfp28              = 279 [(yang_enum_value_name)="m5e10-100g-qsfp28"];
                         m5e16_100g_sfp112              = 282 [(yang_enum_value_name)="m5e16-100g-sfp112"];
+                        m8_sfp112plus18_sfp28plus2_qsfpdd = 284 [(yang_enum_value_name)="m8-sfp112+18-sfp28+2-qsfpdd"];
                     }
                     enum_value value = 1;
                 }
@@ -322671,6 +322671,7 @@ message root {
                     cpm_ixr_e2                     = 137 [(yang_enum_value_name)="cpm-ixr-e2"];
                     cpm_ixr_e2c                    = 145 [(yang_enum_value_name)="cpm-ixr-e2c"];
                     cpm_ixr_e3x                    = 150 [(yang_enum_value_name)="cpm-ixr-e3x"];
+                    cpm_ixr_e3                     = 152 [(yang_enum_value_name)="cpm-ixr-e3"];
                     cpm_sar                        = 154 [(yang_enum_value_name)="cpm-sar"];
                     cpm_ixr_e3c                    = 156 [(yang_enum_value_name)="cpm-ixr-e3c"];
                     cpm_sar_1x                     = 158 [(yang_enum_value_name)="cpm-sar-1x"];
@@ -406966,6 +406967,7 @@ message root {
                             yang_type_string tep_address = 1 [(yang_leaf_name)="tep-address"];
                             yang_type_string sid_address = 2 [(yang_leaf_name)="sid-address"];
                             yang_type_enum_srv6_type srv6_type = 3 [(yang_leaf_name)="srv6-type"];
+                            yang_type_date_and_time last_update = 4 [(yang_leaf_name)="last-update"];
 
                             message yang_type_enum_srv6_type {
                                 enum enum_value {
@@ -485901,6 +485903,7 @@ message root {
                                 ssh_connection_failed          = 6 [(yang_enum_value_name)="ssh-connection-failed"];
                                 listen_port_unavailable        = 7 [(yang_enum_value_name)="listen-port-unavailable"];
                                 tls_connection_failed          = 8 [(yang_enum_value_name)="tls-connection-failed"];
+                                tls_server_profile_down        = 9 [(yang_enum_value_name)="tls-server-profile-down"];
                             }
                             enum_value value = 1;
                         }
@@ -486000,6 +486003,7 @@ message root {
                                     ssh_connection_failed          = 6 [(yang_enum_value_name)="ssh-connection-failed"];
                                     listen_port_unavailable        = 7 [(yang_enum_value_name)="listen-port-unavailable"];
                                     tls_connection_failed          = 8 [(yang_enum_value_name)="tls-connection-failed"];
+                                    tls_server_profile_down        = 9 [(yang_enum_value_name)="tls-server-profile-down"];
                                 }
                                 enum_value value = 1;
                             }
