@@ -32909,8 +32909,9 @@ message root {
                         yang_type_enum_mka_hello_interval mka_hello_interval = 12 [(yang_leaf_name)="mka-hello-interval"];
                         yang_type_uint32 mka_key_server_priority = 13 [(yang_leaf_name)="mka-key-server-priority"];
                         yang_type_enum_psk_type psk_type = 14 [(yang_leaf_name)="psk-type"];
-                        msg_static_cak static_cak = 15 [(yang_leaf_name)="static-cak"];
-                        msg_auto_gen_psk auto_gen_psk = 16 [(yang_leaf_name)="auto-gen-psk"];
+                        yang_type_enum_mka_version mka_version = 15 [(yang_leaf_name)="mka-version"];
+                        msg_static_cak static_cak = 16 [(yang_leaf_name)="static-cak"];
+                        msg_auto_gen_psk auto_gen_psk = 17 [(yang_leaf_name)="auto-gen-psk"];
 
                         message yang_type_oneof_ca_name {
 
@@ -32959,6 +32960,15 @@ message root {
                                 INVALID_ENUM                   = 0; //every enum must contain zero
                                 static                         = 1 [(yang_enum_value_name)="static"];
                                 auto_gen                       = 2 [(yang_enum_value_name)="auto-gen"];
+                            }
+                            enum_value value = 1;
+                        }
+
+                        message yang_type_enum_mka_version {
+                            enum enum_value {
+                                INVALID_ENUM                   = 0; //every enum must contain zero
+                                tag_1                          = 1 [(yang_enum_value_name)="1"];
+                                tag_2                          = 2 [(yang_enum_value_name)="2"];
                             }
                             enum_value value = 1;
                         }
@@ -33645,8 +33655,8 @@ message root {
 
                             // keys, fields, sub-containers
                             yang_type_oneof_session_name session_name = 1 [(yang_leaf_name)="session-name"];
-                            yang_type_string file_url = 2 [(yang_leaf_name)="file-url"];
                             yang_type_string router_instance = 3 [(yang_leaf_name)="router-instance"];
+                            msg_pcap_file_location pcap_file_location = 5 [(yang_leaf_name)="pcap-file-location"];
 
                             message yang_type_oneof_session_name {
 
@@ -33655,6 +33665,15 @@ message root {
                                     yang_type_string string_2 = 2;
                                 }
                             }
+
+                            message msg_pcap_file_location {
+                                option (yang_path) = "/configure/groups/group/mirror/mirror-dest/pcap/pcap-file-location";
+
+                                // keys, fields, sub-containers
+                                yang_type_string url = 1 [(yang_leaf_name)="url"];
+                                yang_type_string password = 2 [(yang_leaf_name)="password"];
+                                yang_type_string username = 3 [(yang_leaf_name)="username"];
+                            } // message msg_pcap_file_location
                         } // message msg_pcap
                     } // message msg_mirror_dest
 
@@ -183250,8 +183269,9 @@ message root {
                          yang_type_enum_mka_hello_interval mka_hello_interval = 14 [(yang_leaf_name)="mka-hello-interval"];
                          yang_type_uint32 mka_key_server_priority = 15 [(yang_leaf_name)="mka-key-server-priority"];
                          yang_type_enum_psk_type psk_type = 16 [(yang_leaf_name)="psk-type"];
-                         msg_static_cak static_cak = 17 [(yang_leaf_name)="static-cak"];
-                         msg_auto_gen_psk auto_gen_psk = 18 [(yang_leaf_name)="auto-gen-psk"];
+                         yang_type_enum_mka_version mka_version = 17 [(yang_leaf_name)="mka-version"];
+                         msg_static_cak static_cak = 18 [(yang_leaf_name)="static-cak"];
+                         msg_auto_gen_psk auto_gen_psk = 19 [(yang_leaf_name)="auto-gen-psk"];
 
                 message yang_type_enum_clear_tag_mode {
                     enum enum_value {
@@ -183292,6 +183312,15 @@ message root {
                         INVALID_ENUM                   = 0; //every enum must contain zero
                         static                         = 1 [(yang_enum_value_name)="static"];
                         auto_gen                       = 2 [(yang_enum_value_name)="auto-gen"];
+                    }
+                    enum_value value = 1;
+                }
+
+                message yang_type_enum_mka_version {
+                    enum enum_value {
+                        INVALID_ENUM                   = 0; //every enum must contain zero
+                        tag_1                          = 1 [(yang_enum_value_name)="1"];
+                        tag_2                          = 2 [(yang_enum_value_name)="2"];
                     }
                     enum_value value = 1;
                 }
@@ -183876,8 +183905,17 @@ message root {
                              yang_type_string session_name = 1 [(yang_leaf_name)="session-name"];
                     repeated yang_type_string apply_groups = 2 [(yang_leaf_name)="apply-groups"];
                     repeated yang_type_string apply_groups_exclude = 3 [(yang_leaf_name)="apply-groups-exclude"];
-                             yang_type_string file_url = 4 [(yang_leaf_name)="file-url"];
                              yang_type_string router_instance = 5 [(yang_leaf_name)="router-instance"];
+                             msg_pcap_file_location pcap_file_location = 7 [(yang_leaf_name)="pcap-file-location"];
+
+                    message msg_pcap_file_location {
+                        option (yang_path) = "/configure/mirror/mirror-dest/pcap/pcap-file-location";
+
+                        // keys, fields, sub-containers
+                        yang_type_string url = 1 [(yang_leaf_name)="url"];
+                        yang_type_string password = 2 [(yang_leaf_name)="password"];
+                        yang_type_string username = 3 [(yang_leaf_name)="username"];
+                    } // message msg_pcap_file_location
                 } // message msg_pcap
             } // message msg_mirror_dest
 
@@ -295258,6 +295296,7 @@ message root {
                                 // keys, fields, sub-containers
                                 yang_type_enum_state state = 1 [(yang_leaf_name)="state"];
                                 yang_type_uint32 origin_state_id = 2 [(yang_leaf_name)="origin-state-id"];
+                                yang_type_uint32 new_origin_state_id = 3 [(yang_leaf_name)="new-origin-state-id"];
 
                                 message yang_type_enum_state {
                                     enum enum_value {
@@ -295286,6 +295325,7 @@ message root {
                                 // keys, fields, sub-containers
                                 yang_type_enum_state state = 1 [(yang_leaf_name)="state"];
                                 yang_type_uint32 origin_state_id = 2 [(yang_leaf_name)="origin-state-id"];
+                                yang_type_uint32 new_origin_state_id = 3 [(yang_leaf_name)="new-origin-state-id"];
 
                                 message yang_type_enum_state {
                                     enum enum_value {
@@ -328099,7 +328139,25 @@ message root {
                     // keys, fields, sub-containers
                     yang_type_int32 esa_id = 1 [(yang_leaf_name)="esa-id"];
                     yang_type_int32 vm = 2 [(yang_leaf_name)="vm"];
-                    msg_resources resources = 3 [(yang_leaf_name)="resources"];
+                    yang_type_enum_state state = 3 [(yang_leaf_name)="state"];
+                    msg_resources resources = 4 [(yang_leaf_name)="resources"];
+
+                    message yang_type_enum_state {
+                        enum enum_value {
+                            INVALID_ENUM                   = 0; //every enum must contain zero
+                            inactive                       = 1 [(yang_enum_value_name)="inactive"];
+                            active                         = 2 [(yang_enum_value_name)="active"];
+                            needs_reset                    = 3 [(yang_enum_value_name)="needs-reset"];
+                            resetting                      = 4 [(yang_enum_value_name)="resetting"];
+                            needs_reconcile                = 5 [(yang_enum_value_name)="needs-reconcile"];
+                            reconciling                    = 6 [(yang_enum_value_name)="reconciling"];
+                            needs_audit                    = 7 [(yang_enum_value_name)="needs-audit"];
+                            auditing                       = 8 [(yang_enum_value_name)="auditing"];
+                            failed_bypass                  = 9 [(yang_enum_value_name)="failed-bypass"];
+                            active_bypass                  = 10 [(yang_enum_value_name)="active-bypass"];
+                        }
+                        enum_value value = 1;
+                    }
 
                     message msg_resources {
                         option (yang_path) = "/state/isa/map-t-group/esa/resources";
@@ -399933,6 +399991,7 @@ message root {
                             yang_type_string tep_address = 1 [(yang_leaf_name)="tep-address"];
                             yang_type_string sid_address = 2 [(yang_leaf_name)="sid-address"];
                             yang_type_enum_srv6_type srv6_type = 3 [(yang_leaf_name)="srv6-type"];
+                            yang_type_date_and_time last_update = 4 [(yang_leaf_name)="last-update"];
 
                             message yang_type_enum_srv6_type {
                                 enum enum_value {
